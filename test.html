@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>page life state</title>
+</head>
+<body>
+	<div id="test"></div>
+	<a href="//www.baidu.com">out link to baidu</a>
+	<script>
+	function log(str){
+		document.querySelector('#test').innerHTML += str+'<br>';
+	}
+	log('当前时间：'+new Date().toLocaleString());
+	log(navigator.userAgent);
+	window.addEventListener("load", function(){
+		log('page  -  load');
+	}, false);
+	window.addEventListener('unload',function(){
+		log('page  -  unload');
+	},false);
+	window.addEventListener('beforeunload',function(){
+		alert('stop!')
+		log('page  -  beforeunload');
+	},false);
+	window.addEventListener('pageshow',function(){
+		log('page  -  pageshow');
+	},false);
+	window.addEventListener('pagehide',function(){
+		log('page  -  pagehide');
+	},false);
+  	document.addEventListener('visibilitychange', function(e){
+  		log('page visibility '+document.visibilityState)
+  	}, false);
+
+</script>
+</body>
+</html>

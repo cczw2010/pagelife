@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="pagelife.js"></script>
+	<title>page life state</title>
+</head>
+<body>
+	<div id="test"></div>
+	<a href="//www.baidu.com">out link to baidu</a>
+	<script>
+</script>
+<script>
+	function log(str){
+		document.querySelector('#test').innerHTML += str+'<br>';
+	}
+	log('当前时间：'+new Date().toLocaleString());
+	log(navigator.userAgent+'<hr>');
+
+	pageLife.onCreate = function(){
+		log('onCreate');
+	};
+	pageLife.onActive = function(){
+		log('onActive');
+	};
+	pageLife.onPause = function(){
+		log('onPause');
+	};
+	pageLife.onDesctory = function(){
+		log('onDesctory');
+	};
+
+</script>
+</body>
+</html>
